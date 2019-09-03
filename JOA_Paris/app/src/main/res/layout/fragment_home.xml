@@ -1,40 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <data>
-        <variable
-            name="homeFragment"
-            type="com.sunah.foreignparis.korea.HomeFragment" />
-    </data>
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/category_one"
-            style="@style/NameStyle"
-            android:layout_width="match_parent"
-             />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-        <TextView
-            android:id="@+id/category_two"
-            style="@style/NameStyle"
-            android:layout_width="match_parent"
-             />
-
-        <TextView
-            android:id="@+id/category_three"
-            style="@style/NameStyle"
-            android:layout_width="match_parent"
-             />
-
-        <TextView
-            android:id="@+id/category_four"
-            style="@style/NameStyle"
-            android:layout_width="match_parent"
-            />
-    </LinearLayout>
-</layout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
