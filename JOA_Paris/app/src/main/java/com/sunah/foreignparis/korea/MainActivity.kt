@@ -2,6 +2,8 @@ package com.sunah.foreignparis.korea
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
+
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
