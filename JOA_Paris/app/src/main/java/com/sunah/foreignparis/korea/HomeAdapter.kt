@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
@@ -43,8 +44,8 @@ class CategoryViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
                 .centerCrop()
                 .into(it)
         }
-        imagesView?.setOnClickListener() {
-            Toast.makeText(imagesView?.context, categoryInfoModel.type, Toast.LENGTH_SHORT).show()
+        imagesView?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_homeFragment_to_restoFragment)
         }
     }
 }
