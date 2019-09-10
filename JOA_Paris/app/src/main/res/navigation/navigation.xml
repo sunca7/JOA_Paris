@@ -12,10 +12,21 @@
         <action
             android:id="@+id/action_homeFragment_to_restoFragment"
             app:destination="@id/restoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_storeFragment"
+            app:destination="@id/storeFragment" />
     </fragment>
     <fragment
         android:id="@+id/restoFragment"
         android:name="com.sunah.foreignparis.korea.RestoFragment"
         android:label="fragment_resto"
-        tools:layout="@layout/fragment_resto" />
+        tools:layout="@layout/fragment_resto" >
+        <argument
+            android:name="category_id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/storeFragment"
+        android:name="com.sunah.foreignparis.korea.StoreFragment"
+        android:label="StoreFragment" />
 </navigation>

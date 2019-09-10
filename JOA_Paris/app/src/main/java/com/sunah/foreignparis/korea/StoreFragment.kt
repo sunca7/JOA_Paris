@@ -1,8 +1,8 @@
 package com.sunah.foreignparis.korea
 
-
+import android.content.Context
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,35 +10,28 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_resto.*
-import java.util.*
+import kotlinx.android.synthetic.main.fragment_store.*
 
-class RestoFragment : Fragment() {
+class StoreFragment : Fragment() {
 
-    private val restoViewModel: RestoViewModel by lazy { ViewModelProviders.of(this)[RestoViewModel::class.java] }
-
-    var categoryId: String? = ""
-
+    private val storeViewModel: StoreViewModel by lazy { ViewModelProviders.of(this)[StoreViewModel::class.java] }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (arguments != null){
-            categoryId = arguments?.getString("categoryId")
-        }
-        return inflater.inflate(R.layout.fragment_resto, container, false)
+        return inflater.inflate(R.layout.fragment_store, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        restoViewModel.restoLiveData.observe(this, Observer{
-            resto_recycler_view.apply {
+        storeViewModel.storeLiveData.observe(this, Observer {
+            store_recycler_view.apply {
                 layoutManager = LinearLayoutManager(activity)
-                adapter = RestoAdapter(it)
+                adapter = StoreAdapter(it)
             }
         })
-        restoViewModel.getRestos(categoryId.toString())
+        storeViewModel.getStores()
     }
 }

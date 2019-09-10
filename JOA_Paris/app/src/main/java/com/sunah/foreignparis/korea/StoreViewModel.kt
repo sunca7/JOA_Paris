@@ -6,27 +6,26 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import java.lang.Exception
 
-class RestoViewModel :ViewModel(){
-    val restoLiveData = MutableLiveData<List<RestoInfoModel>>()
+class StoreViewModel : ViewModel() {
+    val storeLiveData = MutableLiveData<List<StoreInfoModel>>()
 
     val db = FirebaseFirestore.getInstance().collection("places")
 
-
-    fun getRestos(categoryId:String) {
-        db.whereEqualTo("category_id", categoryId).get()
+    fun getStores() {
+        db.orderBy("name", Query.Direction.ASCENDING).get()
             .addOnSuccessListener { result ->
-                val restos = mutableListOf<RestoInfoModel>()
+                val stores = mutableListOf<StoreInfoModel>()
                 for (document in result.documents) {
                     try {
-                        val tmpRes = document.toObject(RestoInfoModel::class.java)
-                        if (tmpRes != null) {
-                            restos.add(tmpRes)
+                        val tmpStore = document.toObject(StoreInfoModel::class.java)
+                        if (tmpStore != null) {
+                            stores.add(tmpStore)
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
                 }
-                restoLiveData.value = restos
+                storeLiveData.value = stores
             }
             .addOnFailureListener() {
                 it.printStackTrace()

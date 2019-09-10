@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -30,6 +31,7 @@ class CategoryViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.home_list, parent, false)) {
     private var namesView: TextView? = null
     private var imagesView: ImageView? = null
+    var categoryId: String = ""
 
     init {
         namesView = itemView.findViewById(R.id.tv_category_list)
@@ -45,7 +47,9 @@ class CategoryViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
                 .into(it)
         }
         imagesView?.setOnClickListener {
-            it.findNavController().navigate(R.id.action_homeFragment_to_restoFragment)
+            categoryId = categoryInfoModel.id
+            var bundle = bundleOf("categoryId" to categoryId)
+            it.findNavController().navigate(R.id.action_homeFragment_to_restoFragment, bundle)
         }
     }
 }
