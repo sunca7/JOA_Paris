@@ -40,8 +40,5 @@ class PlaceViewHolder (inflater: LayoutInflater, parent: ViewGroup) :
                 .centerCrop()
                 .into(it)
         }
-      //  imagesView?.setOnClickListener {
-      //      it.findNavController().navigate(R.id.action_homeFragment_to_restoFragment)
-      //  }
     }
 }
