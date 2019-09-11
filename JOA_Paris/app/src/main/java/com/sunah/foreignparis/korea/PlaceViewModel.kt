@@ -3,31 +3,31 @@ package com.sunah.foreignparis.korea
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import java.lang.Exception
 
-class StoreViewModel : ViewModel() {
-    val storeLiveData = MutableLiveData<List<StoreInfoModel>>()
+class PlaceViewModel :ViewModel(){
+    val placeLiveData = MutableLiveData<List<PlaceInfoModel>>()
 
     val db = FirebaseFirestore.getInstance().collection("places")
 
-    fun getStores() {
-        db.orderBy("name", Query.Direction.ASCENDING).get()
+
+    fun getPlaces(categoryId:String) {
+        db.whereEqualTo("category_id", categoryId).get()
             .addOnSuccessListener { result ->
-                val stores = mutableListOf<StoreInfoModel>()
+                val places  = mutableListOf<PlaceInfoModel>()
                 for (document in result.documents) {
                     try {
-                        val tmpStore = document.toObject(StoreInfoModel::class.java)
-                        if (tmpStore != null) {
-                            stores.add(tmpStore)
+                        val tmpPlace = document.toObject(PlaceInfoModel::class.java)
+                        if (tmpPlace != null) {
+                            places.add(tmpPlace)
                         }
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
                 }
-                storeLiveData.value = stores
+                placeLiveData.value = places
             }
-            .addOnFailureListener() {
+            .addOnFailureListener {
                 it.printStackTrace()
             }
     }

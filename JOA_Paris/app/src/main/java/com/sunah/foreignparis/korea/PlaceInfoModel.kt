@@ -1,6 +1,6 @@
 package com.sunah.foreignparis.korea
 
-class RestoInfoModel
+class PlaceInfoModel
 {
     val category: Int=0
     var name: Map <String, String> = emptyMap()

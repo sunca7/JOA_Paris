@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">JOA_Paris</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: create a customView for home not to have scroll
+                2. display a loader on the screen or the map-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_map">Map</string>
 </resources>
