@@ -41,7 +41,7 @@ class PlaceFragment : Fragment() {
         placeViewHolder.getPlaces(categoryId.toString())
 
         view.button.setOnClickListener {
-            Log.d("btnSetup", "Selected")
+           // Log.d("btnSetup", "Selected")
               it.findNavController().navigate(R.id.action_placeFragment_to_mapFragment)
         }
     }

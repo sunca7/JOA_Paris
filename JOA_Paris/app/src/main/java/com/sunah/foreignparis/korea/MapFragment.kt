@@ -1,82 +1,45 @@
 package com.sunah.foreignparis.korea
 
-
-import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
+import android.provider.SyncStateContract
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.util.AttributeSet
-import android.widget.Toast
-import androidx.databinding.DataBindingUtil.setContentView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.sunah.foreignparis.korea.R.layout.fragment_resto
 
 
-class MapFragment : SupportMapFragment(), OnMapReadyCallback {
+class MapFragment : Fragment(), OnMapReadyCallback {
 
-    private lateinit var map: GoogleMap
+    private lateinit var mMap: GoogleMap
 
-    var initial_latitude  = 48.8566
-    var initial_longitude = 2.3522
-    var initial_marker    = "Paris"
-
-
-    @SuppressLint("MissingSuperCall")
-    override fun onInflate(activity: Activity, attrs: AttributeSet, savedInstanceState: Bundle?) {
-        if (context != null) {
-            if (attrs != null) {
-                super.onInflate(context!!, attrs, savedInstanceState)
-            }
-        }
-        attrs ?: return
-        context ?: return
-    }
-
-  /*
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(fragment_resto, container, false)
+    return inflater.inflate(R.layout.fragment_map, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
-    }
-
-    val mapFragment = supportFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment
-    mapFragment.getMapAsync(this)
-
-
-   
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment
+        val mapFragment = childFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
-      */
-    override fun onMapReady(map: GoogleMap?) {
-        System.err.println("OnMapReady start")
-        this.map = map as GoogleMap
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
 
-     //   val paris = LatLng(initial_latitude, initial_longitude)
-     //   map.addMarker(MarkerOptions().position(paris).title(initial_marker))
-     //   map.moveCamera(CameraUpdateFactory.newLatLng(paris))
-     //   Toast.makeText(this.context, "OnMapReady end", Toast.LENGTH_LONG).show()
+        val paris = LatLng(48.8566, 2.3522)
+        mMap.addMarker(MarkerOptions().position(paris).title("Marker in Paris"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(paris))
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(CameraPosition.fromLatLngZoom(paris,12F)))
     }
 
 }

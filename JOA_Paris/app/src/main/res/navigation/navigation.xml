@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_placeFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_placeFragment_to_listItemFragment"
+            app:destination="@id/listItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventFragment"
@@ -37,4 +40,9 @@
         android:name="com.sunah.foreignparis.korea.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/listItemFragment"
+        android:name="com.sunah.foreignparis.korea.ListItemFragment"
+        android:label="list_item_fragment"
+        tools:layout="@layout/list_item_fragment" />
 </navigation>
