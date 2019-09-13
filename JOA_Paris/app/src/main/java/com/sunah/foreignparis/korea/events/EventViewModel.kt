@@ -1,9 +1,9 @@
-package com.sunah.foreignparis.korea
+package com.sunah.foreignparis.korea.events
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
+import com.sunah.foreignparis.korea.events.model.EventInfoModel
 import java.lang.Exception
 
 class EventViewModel : ViewModel() {

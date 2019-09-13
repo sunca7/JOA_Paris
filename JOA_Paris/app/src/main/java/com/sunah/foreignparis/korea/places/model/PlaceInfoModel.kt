@@ -1,4 +1,4 @@
-package com.sunah.foreignparis.korea
+package com.sunah.foreignparis.korea.places.model
 
 class PlaceInfoModel
 {

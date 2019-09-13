@@ -5,5 +5,6 @@
                 2. display a loader on the screen or the map-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="button_map">Map</string>
+    <string name="button_list">List</string>
     <string name="title_activity_maps">Map</string>
 </resources>
