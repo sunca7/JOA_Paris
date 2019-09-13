@@ -1,9 +1,10 @@
-package com.sunah.foreignparis.korea
+package com.sunah.foreignparis.korea.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.sunah.foreignparis.korea.home.model.CategoryInfoModel
 import java.lang.Exception
 
 class HomeViewModel : ViewModel() {

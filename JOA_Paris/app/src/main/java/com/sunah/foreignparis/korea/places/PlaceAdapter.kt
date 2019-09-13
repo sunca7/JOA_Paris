@@ -1,4 +1,4 @@
-package com.sunah.foreignparis.korea
+package com.sunah.foreignparis.korea.places
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sunah.foreignparis.korea.R
+import com.sunah.foreignparis.korea.places.model.PlaceInfoModel
 
 class PlaceAdapter (var placeModels: List<PlaceInfoModel>) :
     RecyclerView.Adapter<PlaceViewHolder>(){
