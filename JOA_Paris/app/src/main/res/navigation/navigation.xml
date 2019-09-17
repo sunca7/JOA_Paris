@@ -1,10 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
     app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sunah.foreignparis.korea.HomeFragment"
-        android:label="HomeFragment" />
+        android:name="com.sunah.foreignparis.korea.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_placeFragment"
+            app:destination="@+id/placeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_eventFragment"
+            app:destination="@id/eventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeFragment"
+        android:name="com.sunah.foreignparis.korea.places.PlaceFragment"
+        android:label="fragment_place"
+        tools:layout="@layout/fragment_place">
+        <argument
+            android:name="category_id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_placeFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_placeFragment_to_listItemFragment"
+            app:destination="@id/listItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="com.sunah.foreignparis.korea.events.EventFragment"
+        android:label="fragment_event" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.sunah.foreignparis.korea.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/listItemFragment"
+        android:name="com.sunah.foreignparis.korea.ListItemFragment"
+        android:label="list_item_fragment"
+        tools:layout="@layout/list_item_fragment" />
 </navigation>
