@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sunah.foreignparis.korea.R
 import kotlinx.android.synthetic.main.fragment_event.*
+import kotlinx.android.synthetic.main.fragment_place.*
 
 class EventFragment : Fragment() {
 
@@ -25,6 +26,7 @@ class EventFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         eventViewModel.eventLiveData.observe(this, Observer {
+            prograssbar_event.visibility = View.GONE
             event_recycler_view.apply {
                 layoutManager = LinearLayoutManager(activity)
                 adapter = EventAdapter(it)

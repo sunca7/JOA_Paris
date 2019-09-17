@@ -9,7 +9,7 @@ import java.lang.Exception
 class PlaceViewModel :ViewModel(){
     val placeLiveData = MutableLiveData<List<PlaceInfoModel>>()
 
-    val db = FirebaseFirestore.getInstance().collection("places")
+    private val db = FirebaseFirestore.getInstance().collection("places")
 
 
     fun getPlaces(categoryId:String) {
