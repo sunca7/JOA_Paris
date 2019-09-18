@@ -9,7 +9,7 @@ import android.widget.TextView
 import com.sunah.foreignparis.korea.R
 import kotlinx.android.synthetic.main.list_item_view.view.*
 import kotlinx.android.synthetic.main.using_custom_item_view.view.*
-import kotlinx.android.synthetic.main.list_item_view.view.info_place as info_place1
+import kotlinx.android.synthetic.main.list_item_view.view.info_place as info_place
 
 class ListItemView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
 
@@ -23,9 +23,12 @@ class ListItemView(context: Context, attrs: AttributeSet): LinearLayout(context,
         imageView.setImageDrawable(attributes.getDrawable(R.styleable.ListItemView_image))
         textView.text = attributes.getString(R.styleable.ListItemView_text)
         attributes.recycle()
+
+        setText((textView.text as String))
     }
 
     private fun setText(text: String) {
-        info_place1 = text
+        info_place.text = text
     }
+    
 }
