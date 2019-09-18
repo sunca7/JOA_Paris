@@ -42,7 +42,7 @@
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/listItemFragment"
-        android:name="com.sunah.foreignparis.korea.ListItemFragment"
+        android:name="com.sunah.foreignparis.korea.places.ListItemFragment"
         android:label="list_item_fragment"
-        tools:layout="@layout/list_item_fragment" />
+        tools:layout="@layout/list_item_view" />
 </navigation>

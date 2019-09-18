@@ -44,12 +44,9 @@ class PlaceFragment : Fragment(), OnMapReadyCallback {
 
         placeViewHolder.placeLiveData.observe(this, Observer {
             prograssbar_places.visibility = View.GONE
-            if (it != null) {
-                for (item in it) {
-                    val place = LatLng(item.latitude.toDouble(), item.longitude.toDouble())
-                    val name2 = item.name["en"]
-                    mMap.addMarker(MarkerOptions().position(place).title(item.name["en"]))
-                }
+            for (item in it) {
+                val place = LatLng(item.latitude, item.longitude)
+                mMap.addMarker(MarkerOptions().position(place).title(item.name["en"]))
             }
             place_recycler_view.apply {
                 layoutManager = LinearLayoutManager(activity)
