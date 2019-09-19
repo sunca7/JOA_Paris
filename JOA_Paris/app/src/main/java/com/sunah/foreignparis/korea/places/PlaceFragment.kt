@@ -75,16 +75,9 @@ class PlaceFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val paris = LatLng(48.8566, 2.3522)
-   //     val one = places?.get(0)?.address
 
-     //   if (places != null) {
-      //      for (item in places!!){
-      //          var place = LatLng(item.latitude.toDouble(), item.longitude.toDouble())
-      //          mMap.addMarker(MarkerOptions().position(place).title(item.name["en"]))
-      //      }
-      //  }
-      //  mMap.addMarker(MarkerOptions().position(paris).title("Marker in Paris"))
+        val paris = LatLng(48.8566, 2.3522)
+
         mMap.moveCamera(CameraUpdateFactory.newLatLng(paris))
         mMap.animateCamera(
             CameraUpdateFactory.newCameraPosition(

@@ -24,11 +24,11 @@ class ListItemView(context: Context, attrs: AttributeSet): LinearLayout(context,
         textView.text = attributes.getString(R.styleable.ListItemView_text)
         attributes.recycle()
 
-        setText((textView.text as String))
+        setInfo((textView.text as String))
     }
 
-    private fun setText(text: String) {
+    private fun setInfo(text: String) { // parcelable
         info_place.text = text
     }
-    
+
 }
