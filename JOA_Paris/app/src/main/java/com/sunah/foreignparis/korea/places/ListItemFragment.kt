@@ -14,7 +14,6 @@ import com.sunah.foreignparis.korea.R
 @SuppressLint("ParcelCreator")
 class ListItemFragment() : Fragment(), Parcelable {
 
-    private lateinit var viewModel: ListItemViewModel
     private lateinit var myObject: ListItemFragment
 
     constructor(parcel: Parcel) : this() {
@@ -27,7 +26,6 @@ class ListItemFragment() : Fragment(), Parcelable {
     ): View? {
         if (arguments != null) {
             myObject = arguments!!.getParcelable(ARG_PARAM)!!
-            ListItemFragment.newInstance(myObject)
         }
 
      //   val bundle = intent.getBundleExtra("Bundle")
@@ -68,13 +66,4 @@ class ListItemFragment() : Fragment(), Parcelable {
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<ListItemFragment> {
-        override fun createFromParcel(parcel: Parcel): ListItemFragment {
-            return ListItemFragment(parcel)
-        }
-
-        override fun newArray(size: Int): Array<ListItemFragment?> {
-            return arrayOfNulls(size)
-        }
-    }
 }

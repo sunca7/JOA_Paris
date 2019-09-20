@@ -28,8 +28,11 @@
             android:id="@+id/action_placeFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
         <action
-            android:id="@+id/action_placeFragment_to_listItemFragment"
-            app:destination="@id/listItemFragment" />
+            android:id="@+id/action_placeFragment_to_placeDetailFragment"
+            app:destination="@id/placeDetailFragment" />
+        <argument
+            android:name="place_detail"
+            app:argType="com.sunah.foreignparis.korea.places.model.PlaceInfoModel" />
     </fragment>
     <fragment
         android:id="@+id/eventFragment"
@@ -41,10 +44,7 @@
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
     <fragment
-        android:id="@+id/listItemFragment"
-        android:name="com.sunah.foreignparis.korea.places.ListItemFragment"
-        android:label="list_item_fragment"
-        tools:layout="@layout/list_item_view" >
-        <argument android:name="info" />
-    </fragment>
+        android:id="@+id/placeDetailFragment"
+        android:name="com.sunah.foreignparis.korea.places.PlaceDetailFragment"
+        android:label="PlaceDetailFragment" />
 </navigation>
