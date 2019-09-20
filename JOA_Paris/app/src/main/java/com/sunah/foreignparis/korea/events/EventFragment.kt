@@ -1,4 +1,4 @@
-package com.sunah.foreignparis.korea
+package com.sunah.foreignparis.korea.events
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,31 +8,30 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.sunah.foreignparis.korea.R
+import kotlinx.android.synthetic.main.fragment_event.*
+import kotlinx.android.synthetic.main.fragment_place.*
 
-class HomeFragment : Fragment() {
+class EventFragment : Fragment() {
 
-
-    private val viewModel: HomeViewModel by lazy { ViewModelProviders.of(this)[HomeViewModel::class.java] }
+    private val eventViewModel: EventViewModel by lazy { ViewModelProviders.of(this)[EventViewModel::class.java] }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_event, container, false)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.categoryLiveData.observe(this, Observer {
-            home_recycler_view.apply {
+        eventViewModel.eventLiveData.observe(this, Observer {
+            prograssbar_event.visibility = View.GONE
+            event_recycler_view.apply {
                 layoutManager = LinearLayoutManager(activity)
-                adapter = HomeAdapter(it)
+                adapter = EventAdapter(it)
             }
         })
-
-        viewModel.getCategories()
+        eventViewModel.getEvents()
     }
-
 }

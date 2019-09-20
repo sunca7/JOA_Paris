@@ -1,14 +1,15 @@
-package com.sunah.foreignparis.korea
+package com.sunah.foreignparis.korea.places
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
+import com.sunah.foreignparis.korea.places.model.PlaceInfoModel
 import java.lang.Exception
 
 class PlaceViewModel :ViewModel(){
     val placeLiveData = MutableLiveData<List<PlaceInfoModel>>()
 
-    val db = FirebaseFirestore.getInstance().collection("places")
+    private val db = FirebaseFirestore.getInstance().collection("places")
 
 
     fun getPlaces(categoryId:String) {

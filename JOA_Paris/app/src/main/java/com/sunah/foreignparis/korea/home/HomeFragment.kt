@@ -1,4 +1,4 @@
-package com.sunah.foreignparis.korea
+package com.sunah.foreignparis.korea.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,27 +8,33 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_event.*
+import com.sunah.foreignparis.korea.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
-class EventFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private val eventViewModel: EventViewModel by lazy { ViewModelProviders.of(this)[EventViewModel::class.java] }
+
+    private val viewModel: HomeViewModel by lazy { ViewModelProviders.of(this)[HomeViewModel::class.java] }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_event, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        eventViewModel.eventLiveData.observe(this, Observer {
-            event_recycler_view.apply {
+        viewModel.categoryLiveData.observe(this, Observer {
+            progress_bar.visibility = View.GONE
+            home_recycler_view.apply {
                 layoutManager = LinearLayoutManager(activity)
-                adapter = EventAdapter(it)
+                adapter = HomeAdapter(it)
             }
         })
-        eventViewModel.getEvents()
+
+        viewModel.getCategories()
     }
+
 }

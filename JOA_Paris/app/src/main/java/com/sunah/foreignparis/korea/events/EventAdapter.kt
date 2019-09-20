@@ -1,4 +1,4 @@
-package com.sunah.foreignparis.korea
+package com.sunah.foreignparis.korea.events
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sunah.foreignparis.korea.R
+import com.sunah.foreignparis.korea.events.model.EventInfoModel
 
 class EventAdapter (var eventModel:List<EventInfoModel>) :
         RecyclerView.Adapter<EventViewHolder>() {

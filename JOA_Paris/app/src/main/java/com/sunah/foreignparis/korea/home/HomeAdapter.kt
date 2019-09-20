@@ -1,4 +1,4 @@
-package com.sunah.foreignparis.korea
+package com.sunah.foreignparis.korea.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,6 +8,8 @@ import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sunah.foreignparis.korea.R
+import com.sunah.foreignparis.korea.home.model.CategoryInfoModel
 
 class HomeAdapter(var categoryModels: List<CategoryInfoModel>) :
     RecyclerView.Adapter<CategoryViewHolder>() {
@@ -30,7 +32,6 @@ class CategoryViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.home_list, parent, false)) {
     private var namesView: TextView? = null
     private var imagesView: ImageView? = null
-    var categoryId: String = ""
 
     init {
         namesView = itemView.findViewById(R.id.tv_category_list)
@@ -46,9 +47,8 @@ class CategoryViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
                 .into(it)
         }
         imagesView?.setOnClickListener {
-            categoryId = categoryInfoModel.id
-            var bundle = bundleOf("categoryId" to categoryId)
-            if (categoryId.equals("7hlDWJshCsu55LVHEnkk")) {  //different way?
+            val bundle = bundleOf("categoryId" to categoryInfoModel.id)
+            if (categoryInfoModel.type == "event") {
                 it.findNavController().navigate(R.id.action_homeFragment_to_eventFragment, bundle)
             }
             else {
