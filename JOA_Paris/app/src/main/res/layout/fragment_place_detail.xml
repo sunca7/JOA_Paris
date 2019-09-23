@@ -22,7 +22,13 @@
                 tools:src="@tools:sample/avatars"/>
 
             <com.sunah.foreignparis.korea.places.ListItemView
-                android:id="@+id/list_item"
+                android:id="@+id/list_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+            <com.sunah.foreignparis.korea.places.ListItemView
+                android:id="@+id/list_item_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"

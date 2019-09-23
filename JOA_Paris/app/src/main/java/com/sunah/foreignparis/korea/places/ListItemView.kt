@@ -27,7 +27,7 @@ class ListItemView(context: Context, attrs: AttributeSet): LinearLayout(context,
         setInfo((textView.text as String))
     }
 
-    private fun setInfo(text: String) { // parcelable
+    fun setInfo(text: String, iconResId: Int) { // parcelable
         info_name.text = text
         // info_image.setImageDrawable()
     }
