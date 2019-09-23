@@ -1,6 +1,5 @@
 package com.sunah.foreignparis.korea.places
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.sunah.foreignparis.korea.R
 import com.sunah.foreignparis.korea.places.model.PlaceInfoModel
-import com.sunah.foreignparis.korea.places.ListItemFragment as ListItemFragment
-import android.os.Parcelable
 
 
 class PlaceAdapter (var placeModels: List<PlaceInfoModel>) :
@@ -24,7 +21,6 @@ class PlaceAdapter (var placeModels: List<PlaceInfoModel>) :
     }
 
     override fun getItemCount() = placeModels.size
-
 
     override fun onBindViewHolder(holder: PlaceViewHolder, position: Int) {
         holder.bind(placeModels[position])
@@ -40,7 +36,7 @@ class PlaceAdapter (var placeModels: List<PlaceInfoModel>) :
 }
 
 class PlaceViewHolder (inflater: LayoutInflater, parent: ViewGroup) :
-    RecyclerView.ViewHolder(inflater.inflate(R.layout.resto_list, parent, false)) {
+    RecyclerView.ViewHolder(inflater.inflate(R.layout.fragment_place_list, parent, false)) {
     private var namesView: TextView? = null
     private var imagesView: ImageView? = null
 

@@ -8,16 +8,16 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.sunah.foreignparis.korea.R
 import kotlinx.android.synthetic.main.list_item_view.view.*
-import kotlinx.android.synthetic.main.using_custom_item_view.view.*
-import kotlinx.android.synthetic.main.list_item_view.view.info_place as info_place
 
 class ListItemView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
 
     init {
         LayoutInflater.from(context).inflate(R.layout.list_item_view, this, true)
 
-        val imageView: ImageView = findViewById(R.id.image)
-        val textView: TextView = findViewById(R.id.info_place)
+        orientation = HORIZONTAL  // linearlayout - horizontal
+
+        var imageView: ImageView = findViewById(R.id.info_image)
+        var textView: TextView = findViewById(R.id.info_name)
 
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.ListItemView)
         imageView.setImageDrawable(attributes.getDrawable(R.styleable.ListItemView_image))
@@ -28,7 +28,8 @@ class ListItemView(context: Context, attrs: AttributeSet): LinearLayout(context,
     }
 
     private fun setInfo(text: String) { // parcelable
-        info_place.text = text
+        info_name.text = text
+        // info_image.setImageDrawable()
     }
 
 }
