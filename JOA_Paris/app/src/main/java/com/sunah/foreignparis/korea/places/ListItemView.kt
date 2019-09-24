@@ -30,10 +30,10 @@ class ListItemView(context: Context, attrs: AttributeSet): LinearLayout(context,
 
     fun setHtmlInfo (iconResId: Int, text: String){
         info_image.setImageResource(iconResId)
-        info_string.setText(Html.fromHtml(text))
+        info_string.text = Html.fromHtml(text)
     }
 
-    fun setInfo(iconResId: Int, text: String) { // parcelable
+    fun setInfo(iconResId: Int, text: String) {
         info_image.setImageResource(iconResId)
         info_string.text = text
     }
