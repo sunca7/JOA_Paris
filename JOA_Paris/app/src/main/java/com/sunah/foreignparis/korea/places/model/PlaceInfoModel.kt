@@ -8,10 +8,12 @@ class PlaceInfoModel
     : Parcelable {
     val category: Int = 0
     var name: Map <String, String> = emptyMap()
+    var schedule: Map <String, String> = emptyMap()
     val address: String = ""
     val latitude: Double = 0.0
     val longitude: Double = 0.0
     val phone: String = ""
     val picture: String= ""
+    val website: String= ""
     val foursquare: String= ""
 }

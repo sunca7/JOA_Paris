@@ -15,7 +15,7 @@
             android:src="@drawable/googleg_standard_color_18" />
 
         <TextView
-            android:id="@+id/info_name"
+            android:id="@+id/info_string"
             android:layout_weight="7"
             android:layout_width="3dp"
             android:layout_height="wrap_content"
