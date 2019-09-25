@@ -6,16 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/iv_place"
-                android:layout_width="match_parent"
-                android:layout_height="168dp"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="122dp"
-                tools:layout_editor_absoluteY="43dp"
-                app:layout_constraintBottom_toTopOf="@id/details"
-                tools:src="@tools:sample/avatars"/>
+    <RelativeLayout
+        android:id="@+id/iv_place"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/details">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="220dp" />
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/view_pager"
+            android:layout_centerHorizontal="true"
+            android:padding="16dp" />
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/details"
