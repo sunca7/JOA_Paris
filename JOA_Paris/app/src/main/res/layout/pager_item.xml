@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ImageView
         android:id="@+id/secondary_image"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="220dp">
-
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop">
     </ImageView>
+
 </RelativeLayout>

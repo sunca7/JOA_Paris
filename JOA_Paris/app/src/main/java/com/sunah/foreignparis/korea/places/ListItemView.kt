@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Html
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -25,15 +26,24 @@ class ListItemView(context: Context, attrs: AttributeSet): LinearLayout(context,
         textView.text = attributes.getString(R.styleable.ListItemView_text)
 
         attributes.recycle()
-
     }
 
-    fun setHtmlInfo (iconResId: Int, text: String){
+    fun setHtmlInfo (iconResId: Int, text: String?){
+       if (text == null)
+       {
+           this.visibility = View.GONE
+           return
+       }
         info_image.setImageResource(iconResId)
         info_string.text = Html.fromHtml(text)
     }
 
-    fun setInfo(iconResId: Int, text: String) {
+    fun setInfo(iconResId: Int, text: String?) {
+        if (text == null)
+        {
+            this.visibility = View.GONE
+            return
+        }
         info_image.setImageResource(iconResId)
         info_string.text = text
     }

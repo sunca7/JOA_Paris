@@ -9,6 +9,7 @@ class PlaceInfoModel
     val category: Int = 0
     var name: Map <String, String> = emptyMap()
     var schedule: Map <String, String> = emptyMap()
+    var secondary_pictures: List<String> = emptyList()
     val address: String = ""
     val latitude: Double = 0.0
     val longitude: Double = 0.0
