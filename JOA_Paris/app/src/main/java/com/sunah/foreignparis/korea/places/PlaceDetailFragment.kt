@@ -36,11 +36,12 @@ class PlaceDetailFragment: Fragment() {
             urlList.addAll(place.secondary_pictures)
 
             view_pager_header.adapter = ViewPageAdapter(childFragmentManager, view.context, urlList)
+            circle.setViewPager(view_pager_header)
 
             list_item_schedule.setHtmlInfo(R.drawable.ic_query_builder_24px, place.schedule["en"])
             list_item_phone.setInfo(R.drawable.ic_call_24px, place.phone)
             list_item_phone.setOnClickListener {
-                val intent_dial = Intent(Intent.ACTION_DIAL);
+                val intent_dial = Intent(Intent.ACTION_DIAL)
                 intent_dial.data = Uri.parse("tel:${place.phone}")
                 startActivity(intent_dial)
             }

@@ -11,7 +11,7 @@ import com.sunah.foreignparis.korea.R
 import kotlinx.android.synthetic.main.pager_item.*
 import java.net.URL
 
-class ScreenSlidePageFragment : Fragment() {
+class ScreenSlidePageFragment : Fragment() {    //Fragment!!
 
     companion object{
 
@@ -28,8 +28,6 @@ class ScreenSlidePageFragment : Fragment() {
             return fragment
         }
     }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
