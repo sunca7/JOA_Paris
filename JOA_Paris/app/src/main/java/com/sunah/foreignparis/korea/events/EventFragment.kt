@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sunah.foreignparis.korea.R
 import kotlinx.android.synthetic.main.fragment_event.*
-import kotlinx.android.synthetic.main.fragment_place.*
 
 class EventFragment : Fragment() {
 
@@ -34,4 +33,5 @@ class EventFragment : Fragment() {
         })
         eventViewModel.getEvents()
     }
+
 }

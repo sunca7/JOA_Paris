@@ -5,19 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".places.ListItemFragment"
-            android:orientation="horizontal">
+    tools:parentTag="android.widget.LinearLayout">
 
-            <ImageView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/info_image"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/googleg_standard_color_18" />
 
-            <TextView
-                android:layout_weight="4"
-                android:id="@+id/info_place"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Label 1: Value 1"
-                android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/info_string"
+            android:layout_weight="7"
+            android:layout_width="3dp"
+            android:layout_height="wrap_content"
+            android:text="Label 1: Value 1"
+            tools:text="restaurant popopo"
+            android:textStyle="bold"/>
 </merge>

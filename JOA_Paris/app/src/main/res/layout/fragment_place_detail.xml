@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager_header"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="220dp" />
+
+
+
+    <LinearLayout
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_shadow_end_color"
+        app:layout_constraintTop_toBottomOf="@id/view_pager_header"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical">
+
+            <com.sunah.foreignparis.korea.places.ListItemView
+                android:id="@+id/list_item_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+
+            <com.sunah.foreignparis.korea.places.ListItemView
+                android:id="@+id/list_item_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+
+            <com.sunah.foreignparis.korea.places.ListItemView
+                android:id="@+id/list_item_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+
+            <com.sunah.foreignparis.korea.places.ListItemView
+                android:id="@+id/list_item_web"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+
+            <com.sunah.foreignparis.korea.places.ListItemView
+                android:id="@+id/list_item_share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+
+            <com.sunah.foreignparis.korea.places.ListItemView
+                android:id="@+id/list_item_foursquare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
