@@ -14,11 +14,13 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.sunah.foreignparis.korea.R
 import com.sunah.foreignparis.korea.places.model.PlaceInfoModel
 import kotlinx.android.synthetic.main.fragment_place.*
 import kotlinx.android.synthetic.main.fragment_place.view.*
+import kotlinx.android.synthetic.main.fragment_place_detail.*
 
 class PlaceFragment : Fragment(), OnMapReadyCallback {
 
@@ -47,6 +49,18 @@ class PlaceFragment : Fragment(), OnMapReadyCallback {
             for (item in it) {
                 val place = LatLng(item.latitude, item.longitude)
                 mMap.addMarker(MarkerOptions().position(place).title(item.name["en"]))
+
+                mMap.setOnMarkerClickListener { marker ->
+                    if (marker.isInfoWindowShown) {
+                        marker.hideInfoWindow()
+                    } else {
+                        marker.showInfoWindow()
+                    }
+                    true
+                }
+
+                map_view_pager.adapter = MapViewPagerAdapter(childFragmentManager, view.context, it)
+                map_circle.setViewPager(map_view_pager)
             }
             place_recycler_view.apply {
                 layoutManager = LinearLayoutManager(activity)
@@ -63,11 +77,15 @@ class PlaceFragment : Fragment(), OnMapReadyCallback {
         view.button.setOnClickListener {
             if (place_recycler_view.visibility == View.GONE) {
                 map_frame.visibility = View.GONE
+                map_view_pager.visibility = View.GONE
+                map_circle.visibility = View.GONE
                 place_recycler_view.visibility = View.VISIBLE
                 button.text = getString(R.string.button_map)
             } else {
                 map_frame.visibility = View.VISIBLE
                 place_recycler_view.visibility = View.GONE
+                map_view_pager.visibility = View.VISIBLE
+                map_circle.visibility = View.VISIBLE
                 button.text = getString(R.string.button_list)
             }
         }
