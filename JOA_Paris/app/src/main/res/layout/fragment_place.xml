@@ -43,25 +43,11 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/map_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="170dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/button"/>
-
-    <me.relex.circleindicator.CircleIndicator
-        android:id="@+id/map_circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/map_view_pager"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button"
-        android:layout_marginBottom="20dp"
-        android:padding="16dp" />
 
     <Button
         android:id="@+id/button"

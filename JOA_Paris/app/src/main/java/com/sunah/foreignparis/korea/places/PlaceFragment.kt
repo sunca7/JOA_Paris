@@ -60,7 +60,6 @@ class PlaceFragment : Fragment(), OnMapReadyCallback {
                 }
 
                 map_view_pager.adapter = MapViewPagerAdapter(childFragmentManager, view.context, it)
-                map_circle.setViewPager(map_view_pager)
             }
             place_recycler_view.apply {
                 layoutManager = LinearLayoutManager(activity)
@@ -78,14 +77,12 @@ class PlaceFragment : Fragment(), OnMapReadyCallback {
             if (place_recycler_view.visibility == View.GONE) {
                 map_frame.visibility = View.GONE
                 map_view_pager.visibility = View.GONE
-                map_circle.visibility = View.GONE
                 place_recycler_view.visibility = View.VISIBLE
                 button.text = getString(R.string.button_map)
             } else {
                 map_frame.visibility = View.VISIBLE
                 place_recycler_view.visibility = View.GONE
                 map_view_pager.visibility = View.VISIBLE
-                map_circle.visibility = View.VISIBLE
                 button.text = getString(R.string.button_list)
             }
         }
